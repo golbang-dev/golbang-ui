@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   stories: ['../src/**/*.stories.tsx'],
   addons: [],
@@ -6,9 +8,14 @@ module.exports = {
       test: /\.(ts|tsx)$/,
       loader: require.resolve('babel-loader'),
       options: {
-        presets: [['react-app', { flow: false, typescript: true }]],
+        presets: ['@babel/preset-react', '@babel/preset-typescript'],
+        plugins: ['babel-plugin-styled-components'],
       },
     });
+    config.resolve.modules = [
+      ...(config.resolve.modules || []),
+      path.resolve(__dirname, '../src'),
+    ];
     config.resolve.extensions.push('.ts', '.tsx');
 
     return config;
