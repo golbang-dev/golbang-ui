@@ -4,7 +4,7 @@ import React from 'react';
 import Carousel from 'components/main/carousel/Carousel';
 import Card from 'components/main/card/Card';
 import CardList from 'components/main/card/CardList';
-import Footer from 'footer/Footer';
+import Footer from 'components/main/footer/Footer';
 
 export default {
   title: 'Page/MainPage',
