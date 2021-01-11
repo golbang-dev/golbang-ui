@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   stories: ['../src/**/*.stories.tsx'],
-  addons: [],
+  addons: ['@storybook/addon-essentials'],
   webpackFinal: async config => {
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
@@ -12,6 +12,7 @@ module.exports = {
         plugins: ['babel-plugin-styled-components'],
       },
     });
+
     config.resolve.modules = [
       ...(config.resolve.modules || []),
       path.resolve(__dirname, '../src'),
